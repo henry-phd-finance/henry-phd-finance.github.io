@@ -5,7 +5,7 @@ topnav:
 - title: Topnav
   items:
     - title: Main
-      url: /mydoc
+      url: index.html
     # - title: GitHub
     #   external_url: https://github.com/tomjoht/documentation-theme-jekyll
     - title: News

@@ -1168,7 +1168,8 @@ h4.panel-title {
 
 @media (max-width: 1200px) {
     .navbar-header {
-        float: none;
+        /* float: none; */
+        float: up;
     }
     .navbar-left,.navbar-right {
         float: none !important;

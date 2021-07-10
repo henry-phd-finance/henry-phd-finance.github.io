@@ -27,10 +27,6 @@ entries:
       output: web, pdf
       type: homepage  # It makes this title be selected by default?
 
-    - title: Resume
-      url: /index.html
-      output: web, pdf
-
     - title: Introduction
       url: /test_link.html
       output: web, pdf

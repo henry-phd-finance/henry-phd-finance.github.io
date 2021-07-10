@@ -22,10 +22,14 @@ entries:
   - title: About Me
     output: web, pdf
     folderitems:
+    - title: Resume
+      url: /index.html
+      output: web, pdf
+      type: homepage  # It makes this title be selected by default? 아닌듯.. 아마 index.html 이 처음 뜨도록 되어 있어서 그런듯?
+
     - title: Test1
       url: /test.html
       output: web, pdf
-      type: homepage  # It makes this title be selected by default?
 
     - title: Introduction
       url: /test_link.html

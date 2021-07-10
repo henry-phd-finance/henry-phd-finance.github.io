@@ -12,7 +12,8 @@ site_title: Jekyll theme for documentation
 company_name: Copyright 2021 Google LLC
 # this appears in the footer
 
-github_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
+# 매 페이지에 뜨는 Edit Me 버튼을 없애기 위해 아래 라인을 주석처리해봄
+# github_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
 # gitlab_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/

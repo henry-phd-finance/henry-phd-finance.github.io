@@ -25,11 +25,11 @@ entries:
     - title: Test1
       url: /test.html
       output: web, pdf
+      type: homepage  # It makes this title be selected by default?
 
     - title: Resume
       url: /index.html
       output: web, pdf
-      type: homepage
 
     - title: Introduction
       url: /test_link.html

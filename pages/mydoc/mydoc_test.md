@@ -1,5 +1,5 @@
 ---
-title: Test2
+title: Test1
 sidebar: mydoc_sidebar
 permalink: test.html
 folder: mydoc
@@ -7,5 +7,5 @@ folder: mydoc
 
 ## Markdown Header Test
 
-md파일안에 permalink 를 연결해두면 된다.
+KAIST 금융 박사 정현식
 

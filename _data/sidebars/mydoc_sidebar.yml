@@ -29,7 +29,7 @@ entries:
       type: homepage
 
     - title: Introduction
-      url: /mydoc_introduction.html
+      url: /test_link.html
       output: web, pdf
 
     - title: Supported features

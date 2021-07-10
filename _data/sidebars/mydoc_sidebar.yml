@@ -19,11 +19,11 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: _data/sidebars/mydoc_sidebar
+  - title: About Me
     output: web, pdf
     folderitems:
 
-    - title: Get started
+    - title: Resume
       url: /index.html
       output: web, pdf
       type: homepage

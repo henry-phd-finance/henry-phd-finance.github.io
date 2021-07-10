@@ -1,4 +1,4 @@
-repository: tomjoht/documentation-theme-jekyll
+repository: henry-phd-finance/henry-phd-finance.github.io
 
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
@@ -19,7 +19,7 @@ company_name: Copyright 2021 Google LLC
 # gitlab_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
 # if you're using GitLab, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
-google_analytics: UA-66296557-1
+google_analytics: #UA-66296557-1
 # if you have google-analytics ID, put it in. if not, edit this value to blank.
 
 host: 127.0.0.1

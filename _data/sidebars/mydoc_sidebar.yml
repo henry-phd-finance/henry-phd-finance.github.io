@@ -22,6 +22,9 @@ entries:
   - title: About Me
     output: web, pdf
     folderitems:
+    - title: Test1
+      url: /test.html
+      output: web, pdf
 
     - title: Resume
       url: /index.html

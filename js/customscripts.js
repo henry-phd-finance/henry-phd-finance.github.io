@@ -9,7 +9,6 @@ $( document ).ready(function() {
     //console.log (h);
     if (h > 800) {
         $( "#mysidebar" ).attr("class", "nav affix");
-        $( "#nav" ).attr("class", "nav affix");
     }
     // activate tooltips. although this is a bootstrap js function, it must be activated this way in your theme.
     $('[data-toggle="tooltip"]').tooltip({

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://henry-phd-finance.github.io/sitemap.xml

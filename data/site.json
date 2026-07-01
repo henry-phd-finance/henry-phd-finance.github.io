@@ -1,0 +1,67 @@
+{
+  "siteLabel": "Archive",
+  "sections": [
+    {
+      "slug": "jaeyong-conversation",
+      "label": "이재용 부회장과의 대화",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/jaeyong-conversation/body_image_1.png",
+          "alt": "이재용 부회장과의 대화 자료 이미지 1"
+        },
+        {
+          "type": "image",
+          "src": "assets/jaeyong-conversation/body_image_2.png",
+          "alt": "이재용 부회장과의 대화 자료 이미지 2"
+        },
+        {
+          "type": "image",
+          "src": "assets/jaeyong-conversation/body_image_3.png",
+          "alt": "이재용 부회장과의 대화 자료 이미지 3"
+        },
+        {
+          "type": "video",
+          "src": "assets/jaeyong-conversation/attached_video_1.mp4",
+          "alt": "이재용 부회장과의 대화 자료 영상 1"
+        },
+        {
+          "type": "video",
+          "src": "assets/jaeyong-conversation/attached_video_2.mp4",
+          "alt": "이재용 부회장과의 대화 자료 영상 2"
+        },
+        {
+          "type": "image",
+          "src": "assets/jaeyong-conversation/comments_full.png",
+          "alt": "이재용 부회장과의 대화 댓글 캡처"
+        }
+      ]
+    },
+    {
+      "slug": "study-room",
+      "label": "어둠의 공부방 소개",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/study-room/body_image_1.png",
+          "alt": "어둠의 공부방 소개 자료 이미지 1"
+        },
+        {
+          "type": "image",
+          "src": "assets/study-room/body_image_2.png",
+          "alt": "어둠의 공부방 소개 자료 이미지 2"
+        },
+        {
+          "type": "video",
+          "src": "assets/study-room/attached_video.mp4",
+          "alt": "어둠의 공부방 소개 영상"
+        },
+        {
+          "type": "image",
+          "src": "assets/study-room/comments_full.png",
+          "alt": "어둠의 공부방 소개 댓글 캡처"
+        }
+      ]
+    }
+  ]
+}

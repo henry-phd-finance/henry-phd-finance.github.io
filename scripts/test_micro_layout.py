@@ -5,6 +5,8 @@ import re
 import unittest
 from pathlib import Path
 
+from pypdf import PdfReader
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -17,6 +19,24 @@ class MicroLayoutTest(unittest.TestCase):
         self.assertIn("info-row", app_js)
         self.assertIn(".info-list", styles_css)
         self.assertIn(".info-row", styles_css)
+
+    def test_pdf_download_actions_are_rendered_but_not_printed(self) -> None:
+        app_js = (ROOT / "app.js").read_text(encoding="utf-8")
+        styles_css = (ROOT / "styles.css").read_text(encoding="utf-8")
+
+        self.assertIn("renderDocumentActions", app_js)
+        self.assertIn("document-actions", app_js)
+        self.assertIn(".document-actions", styles_css)
+        self.assertRegex(styles_css, r"@media print[\s\S]+\.document-actions")
+
+    def test_generated_pdfs_do_not_include_download_button_text(self) -> None:
+        for document in ["resume_kr.pdf", "resume_en.pdf", "cv_kr.pdf", "projects_kr.pdf"]:
+            with self.subTest(document=document):
+                reader = PdfReader(str(ROOT / "assets" / "pdfs" / document))
+                text = "\\n".join(page.extract_text() or "" for page in reader.pages)
+                self.assertNotIn("PDF 다운로드", text)
+                self.assertNotIn("Resume PDF", text)
+                self.assertNotIn("Projects PDF", text)
 
     def test_resume_and_cv_headings_do_not_use_pipe_separators(self) -> None:
         for document in ["resume_kr.md", "resume_en.md", "cv_kr.md"]:

@@ -62,6 +62,17 @@ def validate_markdown_path(slug: str, markdown_src: object) -> None:
         fail(f"{markdown_src} does not exist")
 
 
+def validate_pdf_path(slug: str, pdf_src: object) -> None:
+    if pdf_src is None:
+        return
+    if not isinstance(pdf_src, str) or not pdf_src.strip():
+        fail(f"{slug} pdfSrc must be a non-empty string")
+    if not pdf_src.endswith(".pdf"):
+        fail(f"{slug} pdfSrc must point to a PDF file")
+    if not (ROOT / pdf_src).is_file():
+        fail(f"{pdf_src} does not exist")
+
+
 def validate_profile(slug: str, profile: object) -> None:
     if not isinstance(profile, dict):
         fail(f"{slug} profile must be an object")
@@ -195,6 +206,7 @@ def main() -> None:
         markdown_src = section.get("markdownSrc")
         if markdown_src is not None:
             validate_markdown_path(slug, markdown_src)
+        validate_pdf_path(slug, section.get("pdfSrc"))
 
         variants = section.get("variants", [])
         if not isinstance(variants, list):
@@ -205,6 +217,7 @@ def main() -> None:
             if not isinstance(variant.get("label"), str) or not variant["label"].strip():
                 fail(f"{slug} variant label must be a non-empty string")
             validate_markdown_path(slug, variant.get("markdownSrc"))
+            validate_pdf_path(slug, variant.get("pdfSrc"))
             if "profile" in variant:
                 validate_profile(slug, variant["profile"])
 

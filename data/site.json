@@ -10,6 +10,8 @@
         {
           "label": "국문 Resume",
           "markdownSrc": "assets/documents/resume_kr.md",
+          "pdfSrc": "assets/pdfs/resume_kr.pdf",
+          "pdfLabel": "국문 Resume PDF",
           "profile": {
             "name": "정현식",
             "headline": "공학·제조 데이터를 품질·공정 의사결정과 운영 가능한 ML/AI 시스템으로 연결하는 Data Scientist",
@@ -35,6 +37,8 @@
         {
           "label": "English Resume",
           "markdownSrc": "assets/documents/resume_en.md",
+          "pdfSrc": "assets/pdfs/resume_en.pdf",
+          "pdfLabel": "English Resume PDF",
           "profile": {
             "name": "Hyunsik Jung",
             "headline": "Data Scientist turning engineering and manufacturing data into operational ML/AI systems for quality and process decisions",
@@ -64,6 +68,8 @@
       "label": "Projects",
       "title": "Projects",
       "description": "제조·공정 데이터, 운영형 ML, AI-ready data를 실제 현업 도구로 연결한 프로젝트입니다.",
+      "pdfSrc": "assets/pdfs/projects_kr.pdf",
+      "pdfLabel": "Projects PDF",
       "markdownSrc": "assets/documents/projects_kr.md"
     },
     {
@@ -71,6 +77,8 @@
       "label": "CV",
       "title": "Curriculum Vitae",
       "hideHeader": true,
+      "pdfSrc": "assets/pdfs/cv_kr.pdf",
+      "pdfLabel": "CV PDF",
       "profile": {
         "name": "정현식",
         "headline": "공학·제조 데이터를 품질·공정 의사결정과 운영 가능한 ML/AI 시스템으로 연결하는 Data Scientist",

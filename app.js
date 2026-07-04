@@ -273,6 +273,38 @@ function renderVariantControls(section) {
   return controls;
 }
 
+function renderDocumentActions(section, variant) {
+  const links = [];
+  if (variant?.pdfSrc) {
+    links.push({
+      href: variant.pdfSrc,
+      label: variant.pdfLabel || "PDF 다운로드",
+    });
+  }
+  if (section.pdfSrc) {
+    links.push({
+      href: section.pdfSrc,
+      label: section.pdfLabel || "PDF 다운로드",
+    });
+  }
+
+  if (links.length === 0) {
+    return null;
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "document-actions";
+  links.forEach((item) => {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.textContent = item.label;
+    link.setAttribute("download", "");
+    actions.appendChild(link);
+  });
+
+  return actions;
+}
+
 function renderBlocks(blocks = []) {
   const fragment = document.createDocumentFragment();
 
@@ -629,6 +661,11 @@ async function renderSection(section) {
 
   if (Array.isArray(section.variants) && section.variants.length > 0) {
     wrapper.appendChild(renderVariantControls(section));
+  }
+
+  const documentActions = renderDocumentActions(section, variant);
+  if (documentActions) {
+    wrapper.appendChild(documentActions);
   }
 
   const inlineTarget = renderInlineTarget(section);

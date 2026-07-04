@@ -60,6 +60,13 @@
       ]
     },
     {
+      "slug": "projects",
+      "label": "Projects",
+      "title": "Projects",
+      "description": "제조·공정 데이터, 운영형 ML, AI-ready data를 실제 현업 도구로 연결한 프로젝트입니다.",
+      "markdownSrc": "assets/documents/projects_kr.md"
+    },
+    {
       "slug": "cv",
       "label": "CV",
       "title": "Curriculum Vitae",
@@ -88,36 +95,42 @@
       "markdownSrc": "assets/documents/cv_kr.md"
     },
     {
-      "slug": "projects",
-      "label": "Projects",
-      "title": "Projects",
-      "description": "공정·제조 데이터, 운영형 ML, AI-ready data 프로젝트를 정리했습니다.",
-      "markdownSrc": "assets/documents/projects_kr.md"
-    },
-    {
       "slug": "recognition",
       "label": "Recognition",
       "title": "Recognition",
-      "description": "사내에서 공개적으로 인정받은 활동과 소개 자료입니다.",
-      "aliases": [
-        "jaeyong-conversation",
-        "study-room"
+      "description": "사내에서 검증받은 전문성, 신뢰, 조직 기여를 요약했습니다.",
+      "links": [
+        {
+          "label": "이재용 부회장과의 대화 자료",
+          "href": "#jaeyong-conversation"
+        },
+        {
+          "label": "어둠의 공부방 소개 자료",
+          "href": "#study-room"
+        }
       ],
       "blocks": [
         {
           "type": "list",
           "items": [
-            "Principal Data Scientist, 삼성전자 DX부문 Data Science Level 4 최고 인증",
-            "AI Specialist, 인재개발원 주관 사내 AI 전문가 Level 3",
-            "A2 등급 발명 3건",
+            "Principal Data Scientist: 삼성전자 DX부문 Data Science Level 4 최고 인증",
+            "AI Specialist: 인재개발원 주관 사내 AI 전문가 Level 3",
+            "A2 등급 발명/특허 3건: 공정 잠재 불량 예측, BLU 광분포 시뮬레이션, 서비스 자재 수요예측",
             "경력 입사 실무진 전문성 면접관 20회 이상",
             "사내 Data Science 학습 플랫폼 직접 개발·운영"
           ]
         }
-      ],
+      ]
+    },
+    {
+      "slug": "jaeyong-conversation",
+      "label": "이재용 부회장과의 대화",
+      "title": "이재용 부회장과의 대화",
+      "description": "Recognition의 supporting media입니다.",
+      "hiddenFromNav": true,
       "mediaGroups": [
         {
-          "title": "이재용 부회장과의 대화",
+          "title": "자료",
           "media": [
             {
               "type": "image",
@@ -150,9 +163,18 @@
               "alt": "이재용 부회장과의 대화 댓글 캡처"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "slug": "study-room",
+      "label": "어둠의 공부방 소개",
+      "title": "어둠의 공부방 소개",
+      "description": "Recognition의 supporting media입니다.",
+      "hiddenFromNav": true,
+      "mediaGroups": [
         {
-          "title": "어둠의 공부방 소개",
+          "title": "자료",
           "media": [
             {
               "type": "image",
@@ -174,54 +196,6 @@
               "src": "assets/study-room/comments_full.png",
               "alt": "어둠의 공부방 소개 댓글 캡처"
             }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "research",
-      "label": "Research",
-      "title": "Research",
-      "description": "박사과정 연구와 학회 발표 이력입니다.",
-      "blocks": [
-        {
-          "type": "list",
-          "items": [
-            "KAIST 경영공학부 Ph.D. in Finance / 금융공학, 2018.08",
-            "박사학위논문: Essays on investor herding behavior and stock market",
-            "APAD 2017 발표: The Disagreement with Herding, Market Bubble, and Excess Volatility",
-            "AsianFA 2017 발표: The Disagreement with Herding, Market Bubble, and Excess Volatility"
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "about",
-      "label": "About",
-      "title": "About",
-      "description": "정현식 / Hyunsik Jung",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "삼성전자 DX부문에서 제조·공정 품질, 사용자 단말 센서 품질 로그, eCommerce risk, 구매·자재 데이터, AI 지식 시스템을 다뤄온 Data Scientist입니다."
-        },
-        {
-          "type": "paragraph",
-          "text": "문제를 모델로 바꾸는 데서 끝나지 않고, 데이터 정의·지표·모델·시뮬레이터·Agent/지식 기반까지 만들어 현업이 반복적으로 쓸 수 있게 하는 방향을 지향합니다."
-        }
-      ]
-    },
-    {
-      "slug": "contact",
-      "label": "Contact",
-      "title": "Contact",
-      "blocks": [
-        {
-          "type": "list",
-          "items": [
-            "Email: henry.phd.finance@gmail.com",
-            "Phone: 010-7161-4720",
-            "GitHub Page: https://henry-phd-finance.github.io/"
           ]
         }
       ]

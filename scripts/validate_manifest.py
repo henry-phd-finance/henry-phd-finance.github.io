@@ -9,22 +9,23 @@ MANIFEST = ROOT / "data" / "site.json"
 
 EXPECTED_ORDER = [
     "resume",
-    "cv",
     "projects",
+    "cv",
     "recognition",
-    "research",
-    "about",
-    "contact",
+    "jaeyong-conversation",
+    "study-room",
 ]
 
 REQUIRED_MEDIA = {
-    "recognition": [
+    "jaeyong-conversation": [
         ("image", "assets/jaeyong-conversation/body_image_1.png"),
         ("image", "assets/jaeyong-conversation/body_image_2.png"),
         ("image", "assets/jaeyong-conversation/body_image_3.png"),
         ("video", "assets/jaeyong-conversation/attached_video_1.mp4"),
         ("video", "assets/jaeyong-conversation/attached_video_2.mp4"),
         ("image", "assets/jaeyong-conversation/comments_full.png"),
+    ],
+    "study-room": [
         ("image", "assets/study-room/body_image_1.png"),
         ("image", "assets/study-room/body_image_2.png"),
         ("video", "assets/study-room/attached_video.mp4"),

@@ -42,7 +42,7 @@ function renderNavigation() {
   brand.href = `#${encodeURIComponent(state.site.sections[0].slug)}`;
   mobileBrand.textContent = state.site.siteLabel;
 
-  state.site.sections.forEach((section) => {
+  state.site.sections.filter((section) => !section.hiddenFromNav).forEach((section) => {
     const link = document.createElement("a");
     link.className = "nav-item";
     link.href = `#${encodeURIComponent(section.slug)}`;

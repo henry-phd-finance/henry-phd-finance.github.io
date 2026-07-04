@@ -12,7 +12,7 @@
           "markdownSrc": "assets/documents/resume_kr.md",
           "profile": {
             "name": "정현식",
-            "headline": "공학·제조 데이터를 AI-ready 분석 자산으로 정리하고, 현업 의사결정과 운영 시스템에 연결하는 Data Scientist",
+            "headline": "공학·제조 데이터를 품질·공정 의사결정과 운영 가능한 ML/AI 시스템으로 연결하는 Data Scientist",
             "contacts": [
               {
                 "label": "Email",
@@ -37,7 +37,7 @@
           "markdownSrc": "assets/documents/resume_en.md",
           "profile": {
             "name": "Hyunsik Jung",
-            "headline": "Data Scientist who turns engineering and manufacturing data into AI-ready analytical assets and connects them to decisions and operational systems",
+            "headline": "Data Scientist turning engineering and manufacturing data into operational ML/AI systems for quality and process decisions",
             "contacts": [
               {
                 "label": "Email",
@@ -66,7 +66,7 @@
       "hideHeader": true,
       "profile": {
         "name": "정현식",
-        "headline": "공학·제조 데이터를 AI-ready 분석 자산으로 정리하고, 현업 의사결정과 운영 시스템에 연결하는 Data Scientist",
+        "headline": "공학·제조 데이터를 품질·공정 의사결정과 운영 가능한 ML/AI 시스템으로 연결하는 Data Scientist",
         "contacts": [
           {
             "label": "Email",
@@ -203,7 +203,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "삼성전자 DX부문에서 제조 품질, 제품 품질, DQA telemetry, eCommerce risk, 구매·자재 데이터, 지식 시스템을 다뤄온 Data Scientist입니다."
+          "text": "삼성전자 DX부문에서 제조·공정 품질, 사용자 단말 센서 품질 로그, eCommerce risk, 구매·자재 데이터, AI 지식 시스템을 다뤄온 Data Scientist입니다."
         },
         {
           "type": "paragraph",

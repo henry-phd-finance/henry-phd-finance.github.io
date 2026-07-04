@@ -38,6 +38,13 @@ class MicroLayoutTest(unittest.TestCase):
                 self.assertNotIn("Resume PDF", text)
                 self.assertNotIn("Projects PDF", text)
 
+    def test_generated_pdfs_do_not_end_with_blank_pages(self) -> None:
+        for document in ["resume_kr.pdf", "resume_en.pdf", "cv_kr.pdf", "projects_kr.pdf"]:
+            with self.subTest(document=document):
+                reader = PdfReader(str(ROOT / "assets" / "pdfs" / document))
+                self.assertGreater(len(reader.pages), 0)
+                self.assertTrue((reader.pages[-1].extract_text() or "").strip())
+
     def test_korean_resume_pdf_breaks_before_representative_proof(self) -> None:
         reader = PdfReader(str(ROOT / "assets" / "pdfs" / "resume_kr.pdf"))
         self.assertEqual(len(reader.pages), 2)
@@ -92,6 +99,10 @@ class MicroLayoutTest(unittest.TestCase):
 
         self.assertIn("- GPA: 3.97/4.3 (96.70/100)", markdown)
         self.assertIn("- GPA: 3.79/4.3 (94.90/100)", markdown)
+        self.assertIn("- 기간: 2013.02 ~ 2018.08", markdown)
+        self.assertIn("- 기간: 2010.02 ~ 2013.02", markdown)
+        self.assertIn("- 기간: 2007.03 ~ 2010.02", markdown)
+        self.assertIn("2014.02 박사과정 편입", markdown)
         self.assertNotIn("3.27/4.3", markdown)
 
     def test_cv_professional_experience_uses_timeline_rows(self) -> None:

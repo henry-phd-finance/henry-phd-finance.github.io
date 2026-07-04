@@ -47,6 +47,6 @@
 
 ## Education
 
-- KAIST, Ph.D. in Finance / Financial Engineering | 2018.08
-- KAIST, B.S. in Mathematics and Industrial Engineering | early graduation in 3 years
-- Korea Science Academy
+- KAIST, Ph.D. in Finance / Financial Engineering, integrated M.S.-Ph.D. track · GPA 3.97/4.3 | 2013.02 - 2018.08
+- KAIST, B.S. in Mathematics and Industrial Engineering · GPA 3.79/4.3 | 2010.02 - 2013.02, early graduation in 3 years
+- Korea Science Academy | 2007.03 - 2010.02

@@ -8,6 +8,7 @@ import socket
 import threading
 from pathlib import Path
 
+from pypdf import PdfReader, PdfWriter
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,6 +51,42 @@ def free_port() -> int:
         return int(sock.getsockname()[1])
 
 
+def object_length(value: object) -> int:
+    if not value:
+        return 0
+    with contextlib.suppress(AttributeError):
+        value = value.get_object()
+    return len(value)  # type: ignore[arg-type]
+
+
+def page_has_visible_content(page: object) -> bool:
+    if (page.extract_text() or "").strip():
+        return True
+
+    resources = page.get("/Resources") or {}
+    with contextlib.suppress(AttributeError):
+        resources = resources.get_object()
+
+    return object_length(resources.get("/XObject")) > 0
+
+
+def trim_trailing_blank_pages(path: Path) -> None:
+    reader = PdfReader(str(path))
+    last_content_index = len(reader.pages) - 1
+    while last_content_index >= 0 and not page_has_visible_content(reader.pages[last_content_index]):
+        last_content_index -= 1
+
+    if last_content_index == len(reader.pages) - 1:
+        return
+
+    writer = PdfWriter()
+    for page in reader.pages[: last_content_index + 1]:
+        writer.add_page(page)
+
+    with path.open("wb") as output:
+        writer.write(output)
+
+
 def main() -> None:
     PDF_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -86,6 +123,7 @@ def main() -> None:
                     print_background=True,
                     prefer_css_page_size=True,
                 )
+                trim_trailing_blank_pages(output_path)
                 print(f"wrote {output_path.relative_to(ROOT)}")
 
             browser.close()

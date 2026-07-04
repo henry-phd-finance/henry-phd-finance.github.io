@@ -19,16 +19,13 @@
 - 공식 직무: Machine Learning 엔지니어
 - 직급: CL3 / Staff Engineer
 - 주요 업무: 제조/제품/고객/구매/리스크/지식 시스템 데이터 분석, 모델링, 시뮬레이션, AI-ready data 구축
+- 참고: 2024.04 ~ 2024.11 육아휴직
 
-경력 흐름:
+#### 조직 이동 및 담당 영역
 
-- 2018.09 ~ 2020.12 | VD사업부 개발팀 AI·Big Data Lab: TV 공정 잠재 불량 예측, miniLED BLU 시뮬레이션, 서비스 자재 수요예측 등 제조·품질·개발 데이터 분석 수행
-- 2021.01 ~ 2025.10 | Big Data 센터 분석그룹: 시장규모 예측, 구매 원가 분석, DCS dashboard/mart, Smart Charging, eStore fraud, SKU impact simulation 수행
-- 2025.11 ~ 현재 | Big Data 센터 Gen AI 개발그룹: DQA Data Agent, 지식 시스템/Ontology/지식 그래프, AI Specialist 과제 수행
-
-경력 참고:
-
-- 2024.04 ~ 2024.11: 육아휴직
+- 2018.09 ~ 2020.12: VD사업부 개발팀 AI·Big Data Lab - TV 공정 잠재 불량 예측, miniLED BLU 시뮬레이션, 서비스 자재 수요예측 등 제조·품질·개발 데이터 분석
+- 2021.01 ~ 2025.10: Big Data 센터 분석그룹 - 시장규모 예측, 구매 원가 분석, DCS dashboard/mart, Smart Charging, eStore fraud, SKU impact simulation
+- 2025.11 ~ 현재: Big Data 센터 Gen AI 개발그룹 - DQA Data Agent, 지식 시스템/Ontology/지식 그래프, AI Specialist 과제
 
 ## Selected Projects
 
@@ -145,12 +142,14 @@
 
 - 구분: 박사
 - 전공: Finance / 금융공학
+- GPA: 3.97/4.3 (96.70/100)
 - 비고: 2018년 8월 졸업, 석박사통합과정, 지도교수 변석준, 공동지도교수 강장구
 
 ### KAIST
 
 - 구분: 학사
 - 전공: 수학과, 산업공학과 복수전공
+- GPA: 3.79/4.3 (94.90/100)
 - 비고: 3년 조기졸업
 
 ### 한국과학영재학교

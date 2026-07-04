@@ -48,6 +48,28 @@ class MicroLayoutTest(unittest.TestCase):
             markdown,
         )
 
+    def test_cv_education_uses_transcript_backed_gpa_selectively(self) -> None:
+        markdown = (ROOT / "assets" / "documents" / "cv_kr.md").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertIn("- GPA: 3.97/4.3 (96.70/100)", markdown)
+        self.assertIn("- GPA: 3.79/4.3 (94.90/100)", markdown)
+        self.assertNotIn("3.27/4.3", markdown)
+
+    def test_cv_professional_experience_uses_timeline_rows(self) -> None:
+        markdown = (ROOT / "assets" / "documents" / "cv_kr.md").read_text(
+            encoding="utf-8"
+        )
+        professional_experience = markdown.split("## Selected Projects", maxsplit=1)[0]
+
+        self.assertIn("#### 조직 이동 및 담당 영역", professional_experience)
+        self.assertNotIn("경력 흐름:", professional_experience)
+        self.assertNotIn("경력 참고:", professional_experience)
+        self.assertNotIn(" | ", professional_experience)
+        self.assertIn("- 2018.09 ~ 2020.12:", professional_experience)
+        self.assertIn("- 참고: 2024.04 ~ 2024.11 육아휴직", professional_experience)
+
 
 if __name__ == "__main__":
     unittest.main()

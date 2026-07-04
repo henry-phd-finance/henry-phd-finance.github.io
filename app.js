@@ -529,6 +529,7 @@ function renderMarkdown(markdown, sectionSlug = "") {
       const level = heading[1].length === 1 ? 2 : Math.min(heading[1].length, 5);
       const element = document.createElement(`h${level}`);
       element.textContent = heading[2].trim();
+      element.dataset.heading = element.textContent;
 
       if (sectionSlug === "projects" && level === 2) {
         currentProjectCard = null;

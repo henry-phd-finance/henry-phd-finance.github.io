@@ -38,6 +38,23 @@ class MicroLayoutTest(unittest.TestCase):
                 self.assertNotIn("Resume PDF", text)
                 self.assertNotIn("Projects PDF", text)
 
+    def test_korean_resume_pdf_breaks_before_representative_proof(self) -> None:
+        reader = PdfReader(str(ROOT / "assets" / "pdfs" / "resume_kr.pdf"))
+        self.assertEqual(len(reader.pages), 2)
+
+        page_text = [page.extract_text() or "" for page in reader.pages]
+        self.assertNotIn("Representative Proof", page_text[0])
+        self.assertTrue(page_text[1].lstrip().startswith("Representative Proof"))
+
+    def test_print_layout_avoids_fragmenting_label_value_rows(self) -> None:
+        app_js = (ROOT / "app.js").read_text(encoding="utf-8")
+        styles_css = (ROOT / "styles.css").read_text(encoding="utf-8")
+
+        self.assertIn("element.dataset.heading", app_js)
+        self.assertRegex(styles_css, r"@media print[\s\S]+\.info-list\s*\{\s*display: block;")
+        self.assertRegex(styles_css, r"@media print[\s\S]+\.info-row,[\s\S]+break-inside: avoid;")
+        self.assertIn('h2[data-heading="Representative Proof"]', styles_css)
+
     def test_resume_and_cv_headings_do_not_use_pipe_separators(self) -> None:
         for document in ["resume_kr.md", "resume_en.md", "cv_kr.md"]:
             with self.subTest(document=document):

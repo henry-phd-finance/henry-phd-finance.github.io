@@ -713,7 +713,7 @@ button {
   body {
     background: #ffffff;
     font-size: 11px;
-    line-height: 1.42;
+    line-height: 1.48;
   }
 
   .mobile-header,
@@ -773,6 +773,7 @@ button {
   .document h4,
   .document h5 {
     break-after: avoid;
+    page-break-after: avoid;
     margin-top: 11px;
   }
 
@@ -799,17 +800,29 @@ button {
     margin: 3px 0;
   }
 
+  .info-list {
+    display: block;
+  }
+
   .info-row,
   .section-resume .info-row,
   .section-cv .info-row {
     grid-template-columns: 112px minmax(0, 1fr);
     column-gap: 12px;
     padding: 4px 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .info-row dt,
   .info-row dd {
-    line-height: 1.4;
+    line-height: 1.45;
+  }
+
+  .section-resume .document h2[data-heading="Representative Proof"] {
+    break-before: page;
+    page-break-before: always;
+    margin-top: 0;
   }
 
   .section-projects .document {

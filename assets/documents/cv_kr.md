@@ -20,11 +20,11 @@
 - 직급: CL3 / Staff Engineer
 - 주요 업무: 제조/제품/고객/구매/리스크/지식 시스템 데이터 분석, 모델링, 시뮬레이션, AI-ready data 구축
 
-| 기간 | 조직 요약 | 주요 업무 |
-| --- | --- | --- |
-| 2018.09 ~ 2020.12 | VD사업부 개발팀 AI·Big Data Lab | TV 제조·품질·개발 데이터 분석, 공정 잠재 불량 예측, BLU 광학 시뮬레이션, 서비스 자재 수요예측 |
-| 2021.01 ~ 2025.10 | Big Data 센터 분석그룹 | 시장규모 예측, 구매 원가 분석, DCS dashboard/mart, Smart Charging, eStore fraud, SKU impact simulation |
-| 2025.11 ~ 현재 | Big Data 센터 Gen AI 개발그룹 | DQA Data Agent, 지식 시스템/Ontology/지식 그래프, AI Specialist 과제 |
+경력 흐름:
+
+- 2018.09 ~ 2020.12 | VD사업부 개발팀 AI·Big Data Lab: TV 공정 잠재 불량 예측, miniLED BLU 시뮬레이션, 서비스 자재 수요예측 등 제조·품질·개발 데이터 분석 수행
+- 2021.01 ~ 2025.10 | Big Data 센터 분석그룹: 시장규모 예측, 구매 원가 분석, DCS dashboard/mart, Smart Charging, eStore fraud, SKU impact simulation 수행
+- 2025.11 ~ 현재 | Big Data 센터 Gen AI 개발그룹: DQA Data Agent, 지식 시스템/Ontology/지식 그래프, AI Specialist 과제 수행
 
 경력 참고:
 
@@ -114,8 +114,8 @@
 ### VCC Simulator / Data 활용 원가절감 분석 기능 고도화
 
 - 기간: 2022년
-- 도메인: 구매 원가, 유사자재 분석, NERP 데이터 확보, 업무 자동화
-- 문제: 수백만 단위 자재코드에 대해 유사한 사양의 자재를 비교하고 원가절감 아이디어를 발굴해야 했지만, NERP 데이터 I/F가 불가능해 분석 데이터 확보 자체가 과제의 병목이었습니다.
+- 도메인: 구매 원가, 유사자재 분석, 내부 구매 데이터 확보, 업무 자동화
+- 문제: 수백만 단위 자재코드에 대해 유사한 사양의 자재를 비교하고 원가절감 아이디어를 발굴해야 했지만, 내부 구매 데이터의 정식 I/F가 불가능해 분석 데이터 확보 자체가 과제의 병목이었습니다.
 - 구현: Python/PyQt 기반 VCC Simulator와 Python 기반 Excel 자동화 데이터 확보 프로그램을 별도로 구현했습니다. 데이터 확보는 RPA 프로그램으로 한 사람이 수행해 공유하고, 다수 사용자는 확보된 데이터를 기반으로 VCC Simulator를 활용하는 구조였습니다.
 - 기능: 유사자재 사양 및 단가 비교, 가격 trend, 물류, BOM 등 데이터 연계 분석, 조건 customizing, report download, interactive 시각화를 지원했습니다.
 - 사용자/이관: 생산기술연구소에서 사용했습니다. 로컬 프로그램으로 사용 후 유용성을 인정받아 웹 개발로 전환되었고, 본인 로직과 코드를 웹 구현용으로 이관했습니다.

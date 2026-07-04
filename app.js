@@ -249,16 +249,52 @@ function renderMediaGroups(mediaGroups = []) {
   return fragment;
 }
 
-function renderMarkdown(markdown) {
+function renderMarkdown(markdown, sectionSlug = "") {
   const container = document.createElement("article");
   container.className = "document";
   const lines = markdown.split(/\r?\n/);
   let index = 0;
+  let projectGroup = "deep";
+  let currentProjectCard = null;
+
+  function appendInlineMarkdown(parent, text) {
+    const pattern = /(\*\*[^*]+\*\*|`[^`]+`)/g;
+    let lastIndex = 0;
+    let match = pattern.exec(text);
+
+    while (match) {
+      if (match.index > lastIndex) {
+        parent.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+
+      const token = match[0];
+      const element = token.startsWith("**")
+        ? document.createElement("strong")
+        : document.createElement("code");
+      element.textContent = token.startsWith("**") ? token.slice(2, -2) : token.slice(1, -1);
+      parent.appendChild(element);
+
+      lastIndex = match.index + token.length;
+      match = pattern.exec(text);
+    }
+
+    if (lastIndex < text.length) {
+      parent.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
+  }
+
+  function targetContainer() {
+    return currentProjectCard || container;
+  }
+
+  function appendNode(node) {
+    targetContainer().appendChild(node);
+  }
 
   function appendParagraph(text) {
     const paragraph = document.createElement("p");
-    paragraph.textContent = text;
-    container.appendChild(paragraph);
+    appendInlineMarkdown(paragraph, text);
+    appendNode(paragraph);
   }
 
   while (index < lines.length) {
@@ -292,7 +328,7 @@ function renderMarkdown(markdown) {
           });
         table.appendChild(row);
       });
-      container.appendChild(table);
+      appendNode(table);
       continue;
     }
 
@@ -301,7 +337,25 @@ function renderMarkdown(markdown) {
       const level = heading[1].length === 1 ? 2 : Math.min(heading[1].length, 5);
       const element = document.createElement(`h${level}`);
       element.textContent = heading[2].trim();
-      container.appendChild(element);
+
+      if (sectionSlug === "projects" && level === 2) {
+        currentProjectCard = null;
+        projectGroup = element.textContent.includes("Additional") ? "additional" : "deep";
+        container.appendChild(element);
+        index += 1;
+        continue;
+      }
+
+      if (sectionSlug === "projects" && level === 3) {
+        currentProjectCard = document.createElement("section");
+        currentProjectCard.className = `project-card project-card-${projectGroup}`;
+        currentProjectCard.appendChild(element);
+        container.appendChild(currentProjectCard);
+        index += 1;
+        continue;
+      }
+
+      appendNode(element);
       index += 1;
       continue;
     }
@@ -310,11 +364,11 @@ function renderMarkdown(markdown) {
       const list = document.createElement("ul");
       while (index < lines.length && lines[index].trim().startsWith("- ")) {
         const item = document.createElement("li");
-        item.textContent = lines[index].trim().replace(/^- /, "");
+        appendInlineMarkdown(item, lines[index].trim().replace(/^- /, ""));
         list.appendChild(item);
         index += 1;
       }
-      container.appendChild(list);
+      appendNode(list);
       continue;
     }
 
@@ -360,7 +414,7 @@ async function renderSection(section) {
     if (!response.ok) {
       throw new Error(`document request failed: ${response.status}`);
     }
-    wrapper.appendChild(renderMarkdown(await response.text()));
+    wrapper.appendChild(renderMarkdown(await response.text(), section.slug));
   }
 
   if (Array.isArray(section.mediaGroups)) {

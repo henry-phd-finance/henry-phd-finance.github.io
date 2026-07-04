@@ -312,6 +312,26 @@ button {
   background: #f3f3f3;
 }
 
+.section-projects .document {
+  max-width: 900px;
+}
+
+.section-projects .document h2 {
+  margin-top: 24px;
+}
+
+.section-projects .document h3 {
+  margin-top: 28px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--active);
+  background: #ffffff;
+}
+
+.section-projects .document h3 + p {
+  margin-top: 2px;
+}
+
 .media-group {
   display: grid;
   gap: 12px;

@@ -40,6 +40,9 @@ REQUIRED_DOCUMENTS = {
     "cv": [
         "assets/documents/cv_kr.md",
     ],
+    "projects": [
+        "assets/documents/projects_kr.md",
+    ],
 }
 
 

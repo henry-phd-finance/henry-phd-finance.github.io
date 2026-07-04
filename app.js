@@ -336,7 +336,7 @@ function renderMarkdown(markdown) {
 
 async function renderSection(section) {
   const wrapper = document.createElement("div");
-  wrapper.className = "section";
+  wrapper.className = `section section-${section.slug}`;
   const variant = activeVariant(section);
   const profile = variant?.profile || section.profile;
   const markdownSrc = variant?.markdownSrc || section.markdownSrc;

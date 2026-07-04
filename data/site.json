@@ -91,22 +91,8 @@
       "slug": "projects",
       "label": "Projects",
       "title": "Projects",
-      "description": "Resume의 주요 bullet을 뒷받침하는 대표 프로젝트입니다.",
-      "blocks": [
-        {
-          "type": "list",
-          "items": [
-            "DQA Data Agent / AI-ready Data 구축",
-            "eStore / Trade-in Fraud Detection",
-            "BLU Simulator 개발 및 검증",
-            "TV 공정 단계 잠재 불량 예측",
-            "지식 시스템 / Ontology / 지식 그래프 PoC",
-            "서비스 자재 / TV 패널 수요예측",
-            "VCC Simulator",
-            "DCS Dashboard / Data Mart"
-          ]
-        }
-      ]
+      "description": "Resume의 주요 bullet을 뒷받침하는 공개용 case study입니다.",
+      "markdownSrc": "assets/documents/projects_kr.md"
     },
     {
       "slug": "recognition",

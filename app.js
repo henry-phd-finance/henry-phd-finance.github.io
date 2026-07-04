@@ -2,6 +2,7 @@ const state = {
   site: null,
   activeSlug: null,
   activeVariantBySlug: {},
+  activeInlineBySlug: {},
 };
 
 const sidebar = document.getElementById("sidebar");
@@ -21,6 +22,74 @@ function sectionBySlug(slug) {
   return state.site.sections.find(
     (section) => section.slug === slug || section.aliases?.includes(slug),
   );
+}
+
+function splitRoute(route) {
+  const [slug = "", inlineSlug = ""] = route.split("/");
+  return { slug, inlineSlug };
+}
+
+function inlineTargetForSection(section, targetSlug) {
+  if (!targetSlug || !Array.isArray(section.links)) {
+    return null;
+  }
+
+  const link = section.links.find((item) => item.targetSlug === targetSlug);
+  if (!link) {
+    return null;
+  }
+
+  return sectionBySlug(targetSlug) || null;
+}
+
+function parentSectionForInlineTarget(targetSlug) {
+  if (!targetSlug) {
+    return null;
+  }
+
+  return state.site.sections.find((section) =>
+    section.links?.some((item) => item.targetSlug === targetSlug),
+  ) || null;
+}
+
+function resolveRoute(rawRoute) {
+  const defaultSection = state.site.sections[0];
+  if (!rawRoute) {
+    return { section: defaultSection, inlineSlug: null, replaceHash: false };
+  }
+
+  const { slug, inlineSlug } = splitRoute(rawRoute);
+  const section = sectionBySlug(slug);
+
+  if (section?.hiddenFromNav) {
+    const parent = parentSectionForInlineTarget(section.slug);
+    if (parent) {
+      return {
+        section: parent,
+        inlineSlug: section.slug,
+        replaceHash: true,
+      };
+    }
+  }
+
+  if (section) {
+    const validInlineSlug = inlineTargetForSection(section, inlineSlug) ? inlineSlug : null;
+    return {
+      section,
+      inlineSlug: validInlineSlug,
+      replaceHash: Boolean(inlineSlug && !validInlineSlug),
+    };
+  }
+
+  return { section: defaultSection, inlineSlug: null, replaceHash: true };
+}
+
+function hashForRoute(sectionSlug, inlineSlug = null) {
+  const encodedSection = encodeURIComponent(sectionSlug);
+  if (!inlineSlug) {
+    return `#${encodedSection}`;
+  }
+  return `#${encodedSection}/${encodeURIComponent(inlineSlug)}`;
 }
 
 function setActiveNav(slug) {
@@ -93,6 +162,20 @@ function renderHeader(section) {
     const links = document.createElement("div");
     links.className = "section-links";
     section.links.forEach((item) => {
+      if (item.targetSlug) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = item.label;
+        const isActive = state.activeInlineBySlug[section.slug] === item.targetSlug;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+        button.addEventListener("click", () => {
+          selectSection(`${section.slug}/${item.targetSlug}`, { updateHash: true });
+        });
+        links.appendChild(button);
+        return;
+      }
+
       const link = document.createElement("a");
       link.href = item.href;
       link.textContent = item.label;
@@ -247,6 +330,41 @@ function renderMediaGroups(mediaGroups = []) {
   });
 
   return fragment;
+}
+
+function renderInlineTarget(section) {
+  const targetSlug = state.activeInlineBySlug[section.slug];
+  const target = inlineTargetForSection(section, targetSlug);
+  if (!target) {
+    return null;
+  }
+
+  const panel = document.createElement("section");
+  panel.className = "inline-target-panel";
+  panel.id = `inline-${target.slug}`;
+
+  const title = document.createElement("h2");
+  title.textContent = target.title || target.label;
+  panel.appendChild(title);
+
+  if (target.description) {
+    const description = document.createElement("p");
+    description.className = "section-description";
+    description.textContent = target.description;
+    panel.appendChild(description);
+  }
+
+  panel.appendChild(renderBlocks(target.blocks));
+
+  if (Array.isArray(target.mediaGroups)) {
+    panel.appendChild(renderMediaGroups(target.mediaGroups));
+  }
+
+  if (Array.isArray(target.media)) {
+    panel.appendChild(renderMediaStack(target.media));
+  }
+
+  return panel;
 }
 
 function renderMarkdown(markdown, sectionSlug = "") {
@@ -460,7 +578,12 @@ async function renderSection(section) {
     wrapper.appendChild(renderVariantControls(section));
   }
 
-  wrapper.appendChild(renderBlocks(section.blocks));
+  const inlineTarget = renderInlineTarget(section);
+  if (inlineTarget) {
+    wrapper.appendChild(inlineTarget);
+  } else {
+    wrapper.appendChild(renderBlocks(section.blocks));
+  }
 
   if (markdownSrc) {
     const response = await fetch(markdownSrc, { cache: "no-store" });
@@ -483,11 +606,20 @@ async function renderSection(section) {
 }
 
 async function selectSection(slug, options = {}) {
-  const section = sectionBySlug(slug) || state.site.sections[0];
+  const route = resolveRoute(slug);
+  const section = route.section;
   state.activeSlug = section.slug;
+  if (route.inlineSlug) {
+    state.activeInlineBySlug[section.slug] = route.inlineSlug;
+  } else {
+    delete state.activeInlineBySlug[section.slug];
+  }
 
-  if (options.updateHash && location.hash !== `#${section.slug}`) {
-    history.pushState(null, "", `#${section.slug}`);
+  const desiredHash = hashForRoute(section.slug, route.inlineSlug);
+  if (options.updateHash && location.hash !== desiredHash) {
+    history.pushState(null, "", desiredHash);
+  } else if (route.replaceHash && location.hash !== desiredHash) {
+    history.replaceState(null, "", desiredHash);
   }
 
   setActiveNav(section.slug);

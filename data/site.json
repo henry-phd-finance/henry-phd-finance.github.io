@@ -102,11 +102,11 @@
       "links": [
         {
           "label": "이재용 부회장과의 대화 자료",
-          "href": "#jaeyong-conversation"
+          "targetSlug": "jaeyong-conversation"
         },
         {
           "label": "어둠의 공부방 소개 자료",
-          "href": "#study-room"
+          "targetSlug": "study-room"
         }
       ],
       "blocks": [
@@ -126,7 +126,7 @@
       "slug": "jaeyong-conversation",
       "label": "이재용 부회장과의 대화",
       "title": "이재용 부회장과의 대화",
-      "description": "Recognition의 supporting media입니다.",
+      "description": "이재용 부회장과의 대화 관련 이미지와 영상 자료입니다.",
       "hiddenFromNav": true,
       "mediaGroups": [
         {
@@ -170,7 +170,7 @@
       "slug": "study-room",
       "label": "어둠의 공부방 소개",
       "title": "어둠의 공부방 소개",
-      "description": "Recognition의 supporting media입니다.",
+      "description": "사내 Data Science 학습 플랫폼 소개 관련 이미지와 영상 자료입니다.",
       "hiddenFromNav": true,
       "mediaGroups": [
         {

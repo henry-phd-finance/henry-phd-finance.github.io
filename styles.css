@@ -226,7 +226,8 @@ button {
   gap: 10px;
 }
 
-.section-links a {
+.section-links a,
+.section-links button {
   display: inline-flex;
   align-items: center;
   min-height: 34px;
@@ -235,12 +236,36 @@ button {
   color: var(--text);
   text-decoration: none;
   background: var(--panel);
+  font: inherit;
+  cursor: pointer;
 }
 
 .section-links a:hover,
-.section-links a:focus-visible {
+.section-links a:focus-visible,
+.section-links button:hover,
+.section-links button:focus-visible {
   outline: none;
   border-color: var(--active);
+}
+
+.section-links .active {
+  border-color: var(--active);
+  background: var(--active);
+  color: var(--panel);
+}
+
+.inline-target-panel {
+  display: grid;
+  gap: 16px;
+  max-width: 920px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.inline-target-panel h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.25;
 }
 
 .content-list,

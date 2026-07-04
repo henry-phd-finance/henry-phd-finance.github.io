@@ -46,6 +46,10 @@ REQUIRED_DOCUMENTS = {
     ],
 }
 
+INLINE_LINK_SECTIONS = {
+    "recognition": {"jaeyong-conversation", "study-room"},
+}
+
 
 def fail(message: str) -> None:
     raise SystemExit(f"FAIL: {message}")
@@ -85,6 +89,42 @@ def document_sources(section: dict) -> list[str]:
         if isinstance(variant, dict) and isinstance(variant.get("markdownSrc"), str):
             sources.append(variant["markdownSrc"])
     return sources
+
+
+def validate_inline_links(by_slug: dict[str, dict]) -> None:
+    for parent_slug, expected_targets in INLINE_LINK_SECTIONS.items():
+        section = by_slug.get(parent_slug)
+        if section is None:
+            fail(f"missing inline-link parent section: {parent_slug}")
+
+        links = section.get("links")
+        if not isinstance(links, list) or not links:
+            fail(f"{parent_slug} links must be a non-empty list")
+
+        actual_targets = set()
+        for item in links:
+            if not isinstance(item, dict):
+                fail(f"{parent_slug} link must be an object")
+            if not isinstance(item.get("label"), str) or not item["label"].strip():
+                fail(f"{parent_slug} link label must be a non-empty string")
+            if "href" in item:
+                fail(f"{parent_slug} inline links must use targetSlug, not href")
+
+            target_slug = item.get("targetSlug")
+            if not isinstance(target_slug, str) or not target_slug.strip():
+                fail(f"{parent_slug} inline link targetSlug must be a non-empty string")
+            if target_slug not in by_slug:
+                fail(f"{parent_slug} inline target does not exist: {target_slug}")
+
+            target = by_slug[target_slug]
+            if not target.get("hiddenFromNav"):
+                fail(f"{target_slug} inline target must be hidden from main navigation")
+            if not target.get("mediaGroups") and not target.get("media"):
+                fail(f"{target_slug} inline target must include media")
+            actual_targets.add(target_slug)
+
+        if actual_targets != expected_targets:
+            fail(f"{parent_slug} inline targets mismatch: {sorted(actual_targets)}")
 
 
 def main() -> None:
@@ -183,6 +223,8 @@ def main() -> None:
     missing_sections = [slug for slug in EXPECTED_ORDER if slug not in by_slug]
     if missing_sections:
         fail(f"missing required sections: {missing_sections}")
+
+    validate_inline_links(by_slug)
 
     for slug, documents in REQUIRED_DOCUMENTS.items():
         actual_documents = document_sources(by_slug[slug])

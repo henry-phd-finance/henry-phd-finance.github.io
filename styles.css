@@ -5,6 +5,7 @@
   --text: #171717;
   --muted: #6f6f6f;
   --line: #dddddd;
+  --line-strong: #bdbdbd;
   --active: #111111;
   --sidebar-width: 260px;
 }
@@ -24,6 +25,10 @@ body {
   font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 15px;
   line-height: 1.5;
+}
+
+button {
+  font: inherit;
 }
 
 .mobile-header {
@@ -89,6 +94,232 @@ body {
 .content {
   width: min(100%, 980px);
   padding: 32px clamp(18px, 4vw, 56px) 64px;
+}
+
+.section {
+  display: grid;
+  gap: 26px;
+}
+
+.section-header {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-header h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.section-description,
+.content-paragraph {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.profile-header {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.profile-header h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.profile-headline {
+  max-width: 840px;
+  margin: 0;
+  color: #333333;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.profile-meta {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 5px;
+  max-width: 620px;
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+.profile-meta dt {
+  display: grid;
+  grid-template-columns: 48px 8px;
+  gap: 2px;
+  color: var(--muted);
+}
+
+.profile-meta dt::after {
+  content: ":";
+  justify-self: end;
+}
+
+.profile-meta dd {
+  margin: 0;
+  min-width: 0;
+}
+
+.profile-meta a,
+.document a {
+  color: var(--text);
+  text-decoration-color: #9a9a9a;
+  text-underline-offset: 3px;
+}
+
+.profile-meta a:hover,
+.profile-meta a:focus-visible,
+.document a:hover,
+.document a:focus-visible {
+  outline: none;
+  text-decoration-color: var(--active);
+}
+
+.variant-controls {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+}
+
+.variant-button {
+  min-width: 132px;
+  min-height: 34px;
+  padding: 6px 14px;
+  border: 0;
+  border-right: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.variant-button:last-child {
+  border-right: 0;
+}
+
+.variant-button:hover,
+.variant-button:focus-visible {
+  outline: none;
+  background: #f3f3f3;
+  color: var(--text);
+}
+
+.variant-button.active {
+  background: var(--active);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.section-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+  background: var(--panel);
+}
+
+.section-links a:hover,
+.section-links a:focus-visible {
+  outline: none;
+  border-color: var(--active);
+}
+
+.content-list,
+.document ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.content-list li,
+.document li {
+  margin: 6px 0;
+}
+
+.document {
+  display: grid;
+  gap: 11px;
+  max-width: 860px;
+}
+
+.document h2,
+.document h3,
+.document h4,
+.document h5 {
+  margin: 16px 0 0;
+  line-height: 1.25;
+}
+
+.document h2 {
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--line);
+  font-size: 22px;
+}
+
+.document h3 {
+  font-size: 18px;
+}
+
+.document h4,
+.document h5 {
+  font-size: 16px;
+}
+
+.document p {
+  margin: 0;
+}
+
+.document code {
+  padding: 1px 4px;
+  background: #f0f0f0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.94em;
+}
+
+.document table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-wrap: anywhere;
+}
+
+.document th,
+.document td {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.document th {
+  background: #f3f3f3;
+}
+
+.media-group {
+  display: grid;
+  gap: 12px;
+}
+
+.media-group h2 {
+  margin: 10px 0 0;
+  font-size: 20px;
 }
 
 .media-stack {
@@ -181,6 +412,27 @@ body {
   .content {
     width: 100%;
     padding: 16px 12px 40px;
+  }
+
+  .profile-header h1 {
+    font-size: 31px;
+  }
+
+  .profile-headline {
+    font-size: 15px;
+  }
+
+  .profile-meta {
+    max-width: 100%;
+  }
+
+  .variant-controls {
+    width: 100%;
+  }
+
+  .variant-button {
+    flex: 1;
+    min-width: 0;
   }
 
   .media-stack {

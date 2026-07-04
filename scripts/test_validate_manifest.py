@@ -42,26 +42,24 @@ class ValidateManifestTest(unittest.TestCase):
 
     def test_valid_extra_section_passes(self) -> None:
         data = copy.deepcopy(self.data)
-        data["sections"].append(
+        data["sections"].insert(
+            6,
             {
-                "slug": "resume",
-                "label": "이력서",
-                "media": [
-                    {
-                        "type": "image",
-                        "src": "assets/study-room/body_image_1.png",
-                        "alt": "이력서 예시 이미지",
-                    }
-                ],
+                "slug": "extra",
+                "label": "Extra",
+                "blocks": [{"type": "paragraph", "text": "Optional extra page."}],
             }
         )
-
-        self.run_validator_with(data)
+        self.validator.EXPECTED_ORDER.insert(6, "extra")
+        try:
+            self.run_validator_with(data)
+        finally:
+            self.validator.EXPECTED_ORDER.remove("extra")
 
     def test_missing_required_seed_section_fails(self) -> None:
         data = copy.deepcopy(self.data)
         data["sections"] = [
-            section for section in data["sections"] if section["slug"] != "study-room"
+            section for section in data["sections"] if section["slug"] != "recognition"
         ]
 
         with self.assertRaises(SystemExit):

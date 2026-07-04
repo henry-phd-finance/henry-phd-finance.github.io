@@ -1,65 +1,242 @@
 {
-  "siteLabel": "Archive",
+  "siteLabel": "Hyunsik Jung",
   "sections": [
     {
-      "slug": "jaeyong-conversation",
-      "label": "이재용 부회장과의 대화",
-      "media": [
+      "slug": "resume",
+      "label": "Resume",
+      "title": "Resume",
+      "hideHeader": true,
+      "variants": [
         {
-          "type": "image",
-          "src": "assets/jaeyong-conversation/body_image_1.png",
-          "alt": "이재용 부회장과의 대화 자료 이미지 1"
+          "label": "국문 Resume",
+          "markdownSrc": "assets/documents/resume_kr.md",
+          "profile": {
+            "name": "정현식",
+            "headline": "공학·제조 데이터를 AI-ready 분석 자산으로 정리하고, 현업 의사결정과 운영 시스템에 연결하는 Data Scientist",
+            "contacts": [
+              {
+                "label": "Email",
+                "value": "henry.phd.finance@gmail.com",
+                "href": "mailto:henry.phd.finance@gmail.com"
+              },
+              {
+                "label": "Phone",
+                "value": "010-7161-4720",
+                "href": "tel:+821071614720"
+              },
+              {
+                "label": "Links",
+                "value": "henry-phd-finance.github.io",
+                "href": "https://henry-phd-finance.github.io/"
+              }
+            ]
+          }
         },
         {
-          "type": "image",
-          "src": "assets/jaeyong-conversation/body_image_2.png",
-          "alt": "이재용 부회장과의 대화 자료 이미지 2"
-        },
-        {
-          "type": "image",
-          "src": "assets/jaeyong-conversation/body_image_3.png",
-          "alt": "이재용 부회장과의 대화 자료 이미지 3"
-        },
-        {
-          "type": "video",
-          "src": "assets/jaeyong-conversation/attached_video_1.mp4",
-          "alt": "이재용 부회장과의 대화 자료 영상 1"
-        },
-        {
-          "type": "video",
-          "src": "assets/jaeyong-conversation/attached_video_2.mp4",
-          "alt": "이재용 부회장과의 대화 자료 영상 2"
-        },
-        {
-          "type": "image",
-          "src": "assets/jaeyong-conversation/comments_full.png",
-          "alt": "이재용 부회장과의 대화 댓글 캡처"
+          "label": "English Resume",
+          "markdownSrc": "assets/documents/resume_en.md",
+          "profile": {
+            "name": "Hyunsik Jung",
+            "headline": "Data Scientist who turns engineering and manufacturing data into AI-ready analytical assets and connects them to decisions and operational systems",
+            "contacts": [
+              {
+                "label": "Email",
+                "value": "henry.phd.finance@gmail.com",
+                "href": "mailto:henry.phd.finance@gmail.com"
+              },
+              {
+                "label": "Phone",
+                "value": "+82-10-7161-4720",
+                "href": "tel:+821071614720"
+              },
+              {
+                "label": "Links",
+                "value": "henry-phd-finance.github.io",
+                "href": "https://henry-phd-finance.github.io/"
+              }
+            ]
+          }
         }
       ]
     },
     {
-      "slug": "study-room",
-      "label": "어둠의 공부방 소개",
-      "media": [
+      "slug": "cv",
+      "label": "CV",
+      "title": "Curriculum Vitae",
+      "hideHeader": true,
+      "profile": {
+        "name": "정현식",
+        "headline": "공학·제조 데이터를 AI-ready 분석 자산으로 정리하고, 현업 의사결정과 운영 시스템에 연결하는 Data Scientist",
+        "contacts": [
+          {
+            "label": "Email",
+            "value": "henry.phd.finance@gmail.com",
+            "href": "mailto:henry.phd.finance@gmail.com"
+          },
+          {
+            "label": "Phone",
+            "value": "010-7161-4720",
+            "href": "tel:+821071614720"
+          },
+          {
+            "label": "Links",
+            "value": "henry-phd-finance.github.io",
+            "href": "https://henry-phd-finance.github.io/"
+          }
+        ]
+      },
+      "markdownSrc": "assets/documents/cv_kr.md"
+    },
+    {
+      "slug": "projects",
+      "label": "Projects",
+      "title": "Projects",
+      "description": "Resume의 주요 bullet을 뒷받침하는 대표 프로젝트입니다.",
+      "blocks": [
         {
-          "type": "image",
-          "src": "assets/study-room/body_image_1.png",
-          "alt": "어둠의 공부방 소개 자료 이미지 1"
+          "type": "list",
+          "items": [
+            "DQA Data Agent / AI-ready Data 구축",
+            "eStore / Trade-in Fraud Detection",
+            "BLU Simulator 개발 및 검증",
+            "TV 공정 단계 잠재 불량 예측",
+            "지식 시스템 / Ontology / 지식 그래프 PoC",
+            "서비스 자재 / TV 패널 수요예측",
+            "VCC Simulator",
+            "DCS Dashboard / Data Mart"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "recognition",
+      "label": "Recognition",
+      "title": "Recognition",
+      "description": "사내에서 공개적으로 인정받은 활동과 소개 자료입니다.",
+      "aliases": [
+        "jaeyong-conversation",
+        "study-room"
+      ],
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Principal Data Scientist, 삼성전자 DX부문 Data Science Level 4 최고 인증",
+            "AI Specialist, 인재개발원 주관 사내 AI 전문가 Level 3",
+            "A2 등급 발명 3건",
+            "경력 입사 실무진 전문성 면접관 20회 이상",
+            "사내 Data Science 학습 플랫폼 직접 개발·운영"
+          ]
+        }
+      ],
+      "mediaGroups": [
+        {
+          "title": "이재용 부회장과의 대화",
+          "media": [
+            {
+              "type": "image",
+              "src": "assets/jaeyong-conversation/body_image_1.png",
+              "alt": "이재용 부회장과의 대화 자료 이미지 1"
+            },
+            {
+              "type": "image",
+              "src": "assets/jaeyong-conversation/body_image_2.png",
+              "alt": "이재용 부회장과의 대화 자료 이미지 2"
+            },
+            {
+              "type": "image",
+              "src": "assets/jaeyong-conversation/body_image_3.png",
+              "alt": "이재용 부회장과의 대화 자료 이미지 3"
+            },
+            {
+              "type": "video",
+              "src": "assets/jaeyong-conversation/attached_video_1.mp4",
+              "alt": "이재용 부회장과의 대화 자료 영상 1"
+            },
+            {
+              "type": "video",
+              "src": "assets/jaeyong-conversation/attached_video_2.mp4",
+              "alt": "이재용 부회장과의 대화 자료 영상 2"
+            },
+            {
+              "type": "image",
+              "src": "assets/jaeyong-conversation/comments_full.png",
+              "alt": "이재용 부회장과의 대화 댓글 캡처"
+            }
+          ]
         },
         {
-          "type": "image",
-          "src": "assets/study-room/body_image_2.png",
-          "alt": "어둠의 공부방 소개 자료 이미지 2"
+          "title": "어둠의 공부방 소개",
+          "media": [
+            {
+              "type": "image",
+              "src": "assets/study-room/body_image_1.png",
+              "alt": "어둠의 공부방 소개 자료 이미지 1"
+            },
+            {
+              "type": "image",
+              "src": "assets/study-room/body_image_2.png",
+              "alt": "어둠의 공부방 소개 자료 이미지 2"
+            },
+            {
+              "type": "video",
+              "src": "assets/study-room/attached_video.mp4",
+              "alt": "어둠의 공부방 소개 영상"
+            },
+            {
+              "type": "image",
+              "src": "assets/study-room/comments_full.png",
+              "alt": "어둠의 공부방 소개 댓글 캡처"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "research",
+      "label": "Research",
+      "title": "Research",
+      "description": "박사과정 연구와 학회 발표 이력입니다.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "KAIST 경영공학부 Ph.D. in Finance / 금융공학, 2018.08",
+            "박사학위논문: Essays on investor herding behavior and stock market",
+            "APAD 2017 발표: The Disagreement with Herding, Market Bubble, and Excess Volatility",
+            "AsianFA 2017 발표: The Disagreement with Herding, Market Bubble, and Excess Volatility"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "label": "About",
+      "title": "About",
+      "description": "정현식 / Hyunsik Jung",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "삼성전자 DX부문에서 제조 품질, 제품 품질, DQA telemetry, eCommerce risk, 구매·자재 데이터, 지식 시스템을 다뤄온 Data Scientist입니다."
         },
         {
-          "type": "video",
-          "src": "assets/study-room/attached_video.mp4",
-          "alt": "어둠의 공부방 소개 영상"
-        },
+          "type": "paragraph",
+          "text": "문제를 모델로 바꾸는 데서 끝나지 않고, 데이터 정의·지표·모델·시뮬레이터·Agent/지식 기반까지 만들어 현업이 반복적으로 쓸 수 있게 하는 방향을 지향합니다."
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "label": "Contact",
+      "title": "Contact",
+      "blocks": [
         {
-          "type": "image",
-          "src": "assets/study-room/comments_full.png",
-          "alt": "어둠의 공부방 소개 댓글 캡처"
+          "type": "list",
+          "items": [
+            "Email: henry.phd.finance@gmail.com",
+            "Phone: 010-7161-4720",
+            "GitHub Page: https://henry-phd-finance.github.io/"
+          ]
         }
       ]
     }

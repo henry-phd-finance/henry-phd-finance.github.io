@@ -34,6 +34,12 @@ def main() -> None:
     require(js, "location.hash", "renderer must support hash navigation")
     require(js, 'document.createElement("video")', "renderer must render videos")
     require(js, 'document.createElement("img")', "renderer must render images")
+    require(js, "markdownSrc", "renderer must render markdown documents")
+    require(js, "variants", "renderer must support document variants")
+    require(js, "mediaGroups", "renderer must render grouped media")
+    require(js, "renderProfile", "renderer must render profile headers")
+    require(css, ".profile-meta", "styles must align profile metadata")
+    require(css, ".variant-controls", "styles must define document variant controls")
 
     if not (ROOT / ".nojekyll").is_file():
         raise SystemExit("FAIL: missing .nojekyll")

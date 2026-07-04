@@ -91,7 +91,7 @@
       "slug": "projects",
       "label": "Projects",
       "title": "Projects",
-      "description": "Resume의 주요 bullet을 뒷받침하는 공개용 case study입니다.",
+      "description": "공학·제조 데이터, 운영형 ML, AI-ready data 프로젝트를 공개 가능한 범위로 정리했습니다.",
       "markdownSrc": "assets/documents/projects_kr.md"
     },
     {

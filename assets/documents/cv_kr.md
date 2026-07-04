@@ -141,11 +141,23 @@
 
 ## Education
 
-| 구분 | 학교 | 전공/내용 | 비고 |
-| --- | --- | --- | --- |
-| 박사 | KAIST 경영공학부 | Finance / 금융공학 | 2018년 8월 졸업, 석박사통합과정, 지도교수 변석준, 공동지도교수 강장구 |
-| 학사 | KAIST | 수학과, 산업공학과 복수전공 | 3년 조기졸업 |
-| 고등학교 | 한국과학영재학교 | 과학영재학교 | 전국 유일 영재학교 시절 입학 |
+### KAIST 경영공학부
+
+- 구분: 박사
+- 전공: Finance / 금융공학
+- 비고: 2018년 8월 졸업, 석박사통합과정, 지도교수 변석준, 공동지도교수 강장구
+
+### KAIST
+
+- 구분: 학사
+- 전공: 수학과, 산업공학과 복수전공
+- 비고: 3년 조기졸업
+
+### 한국과학영재학교
+
+- 구분: 고등학교
+- 내용: 과학영재학교
+- 비고: 전국 유일 영재학교 시절 입학
 
 ## Research / Conference
 
@@ -153,13 +165,29 @@
 - APAD 2017: `The Disagreement with Herding, Market Bubble, and Excess Volatility` 직접 발표. Analyst EPS forecast에서 관측되는 disagreement와 consensus-following behavior를 하나의 모형에서 다룸. 모형 유도, simulation, 보조 실증분석, 발표자료 작성을 단독 수행.
 - AsianFA 2017: `The Disagreement with Herding, Market Bubble, and Excess Volatility` 직접 발표. Herding parameter가 disagreement 모형의 price·return volatility 해석을 어떻게 바꾸는지 설명.
 - StockTwits 기반 cognitive network 연구: 약 3,100만 건 게시글과 약 15만 명 사용자 활동을 활용해 stock-user bipartite network를 stock-stock cognitive network로 변환. Disagreement, overconfidence, pessimism 등이 cognitive distance가 가까운 종목으로 전파되는지 portfolio sorting과 clustered regression으로 검증. 데이터 수집과 cashtag parsing은 직접 수행 범위가 아니며, network 구성, regression, 발표자료 작성을 수행.
+
 ## Patents / Inventions
 
-| 발명명칭 | 등급 | 기여도 | 연결 프로젝트 | 비고 |
-| --- | --- | --- | --- | --- |
-| 다중모델 최적화 기반의 실시간 데이터특성 변화에 적응적인 잠재 불량 예측 시스템 | A2 | 10% | TV 공정 단계 잠재 불량 예측 | 특허 문서 작성 기여는 작으므로 과제 수행 역할 중심으로 설명 |
-| 광프로파일을 이용한 화면표시장치의 광분포 시뮬레이션 방법 및 화질 최적 광학옵션 탐색 시스템 | A2 | 25% | BLU Simulator | 과제 주도성이 높아 상세 CV 핵심 발명으로 사용 가능 |
-| 자재군집화기반 서비스자재 수요예측 및 실시간 자재수급 이상감지 시스템 및 그 방법 | A2 | 30% | 서비스 자재 수요예측 | 출원, LTB 이후 수요예측 및 자재수급 이상감지 구조 |
+### 다중모델 최적화 기반의 실시간 데이터특성 변화에 적응적인 잠재 불량 예측 시스템
+
+- 등급: A2
+- 기여도: 10%
+- 연결 프로젝트: TV 공정 단계 잠재 불량 예측
+- 비고: 특허 문서 작성 기여는 작으므로 과제 수행 역할 중심으로 설명
+
+### 광프로파일을 이용한 화면표시장치의 광분포 시뮬레이션 방법 및 화질 최적 광학옵션 탐색 시스템
+
+- 등급: A2
+- 기여도: 25%
+- 연결 프로젝트: BLU Simulator
+- 비고: 과제 주도성이 높아 상세 CV 핵심 발명으로 사용 가능
+
+### 자재군집화기반 서비스자재 수요예측 및 실시간 자재수급 이상감지 시스템 및 그 방법
+
+- 등급: A2
+- 기여도: 30%
+- 연결 프로젝트: 서비스 자재 수요예측
+- 비고: 출원, LTB 이후 수요예측 및 자재수급 이상감지 구조
 
 ## Certification / Recognition
 

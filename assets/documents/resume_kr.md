@@ -18,9 +18,13 @@
 
 ## Experience
 
-### Samsung Electronics, DX Division | 2018.09 - 현재
+### Samsung Electronics, DX Division
 
-Machine Learning 엔지니어 / CL3 Staff Engineer
+- 기간: 2018.09 - 현재
+- 직무: Machine Learning 엔지니어
+- 직급: CL3 / Staff Engineer
+
+#### Role History
 
 - 2018.09 - 2020.12: TV사업부(VD) 개발팀 AI·Big Data Lab. TV 공정 잠재 불량 예측, miniLED BLU 시뮬레이션, 서비스 자재 수요예측
 - 2021.01 - 2025.10: Big Data 센터 분석그룹. 시장규모 예측, 구매 원가 분석, DCS dashboard/mart, Smart Charging, eStore fraud, SKU impact simulation

@@ -415,6 +415,48 @@ function renderMarkdown(markdown, sectionSlug = "") {
     appendNode(paragraph);
   }
 
+  function splitLabelValue(text) {
+    const boldMatch = text.match(/^\*\*([^*]+?)\s*:?\*\*\s*:?\s*(.+)$/);
+    if (boldMatch) {
+      return {
+        label: boldMatch[1].replace(/:$/, "").trim(),
+        value: boldMatch[2].trim(),
+      };
+    }
+
+    const plainMatch = text.match(/^([^:：]{2,42}):\s+(.+)$/);
+    if (!plainMatch) {
+      return null;
+    }
+
+    return {
+      label: plainMatch[1].trim(),
+      value: plainMatch[2].trim(),
+    };
+  }
+
+  function createInfoList(rows) {
+    const list = document.createElement("dl");
+    list.className = "info-list";
+
+    rows.forEach(({ label, value }) => {
+      const row = document.createElement("div");
+      row.className = "info-row";
+
+      const term = document.createElement("dt");
+      term.textContent = label;
+
+      const description = document.createElement("dd");
+      appendInlineMarkdown(description, value);
+
+      row.appendChild(term);
+      row.appendChild(description);
+      list.appendChild(row);
+    });
+
+    return list;
+  }
+
   while (index < lines.length) {
     const line = lines[index];
     const trimmed = line.trim();
@@ -532,13 +574,24 @@ function renderMarkdown(markdown, sectionSlug = "") {
         continue;
       }
 
-      const list = document.createElement("ul");
+      const itemTexts = [];
       while (index < lines.length && lines[index].trim().startsWith("- ")) {
-        const item = document.createElement("li");
-        appendInlineMarkdown(item, lines[index].trim().replace(/^- /, ""));
-        list.appendChild(item);
+        itemTexts.push(lines[index].trim().replace(/^- /, ""));
         index += 1;
       }
+
+      const infoRows = itemTexts.map(splitLabelValue);
+      if (infoRows.every(Boolean)) {
+        appendNode(createInfoList(infoRows));
+        continue;
+      }
+
+      const list = document.createElement("ul");
+      itemTexts.forEach((itemText) => {
+        const item = document.createElement("li");
+        appendInlineMarkdown(item, itemText);
+        list.appendChild(item);
+      });
       appendNode(list);
       continue;
     }

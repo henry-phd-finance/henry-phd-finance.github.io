@@ -18,9 +18,13 @@
 
 ## Experience
 
-### Samsung Electronics, DX Division | 2018.09 - Present
+### Samsung Electronics, DX Division
 
-Machine Learning Engineer / CL3 Staff Engineer
+- Period: 2018.09 - Present
+- Role: Machine Learning Engineer
+- Level: CL3 / Staff Engineer
+
+#### Role History
 
 - 2018.09 - 2020.12: AI & Big Data Lab, Visual Display Business. TV process latent defect prediction, miniLED BLU simulation, and service-parts demand forecasting.
 - 2021.01 - 2025.10: Analytics Group, Big Data Center. Market-size forecasting, procurement cost analytics, DCS dashboard/mart, Smart Charging, eStore fraud, and SKU impact simulation.

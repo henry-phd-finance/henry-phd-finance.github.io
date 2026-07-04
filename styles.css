@@ -341,6 +341,47 @@ button {
   background: #f3f3f3;
 }
 
+.info-list {
+  display: grid;
+  margin: 0;
+  max-width: 920px;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: minmax(132px, 190px) minmax(0, 1fr);
+  column-gap: 18px;
+  padding: 8px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.info-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.info-row dt {
+  margin: 0;
+  color: #111111;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.info-row dd {
+  margin: 0;
+  min-width: 0;
+  color: #333333;
+  line-height: 1.62;
+}
+
+.section-resume .info-row {
+  grid-template-columns: minmax(156px, 210px) minmax(0, 1fr);
+}
+
+.section-cv .info-row {
+  grid-template-columns: minmax(138px, 190px) minmax(0, 1fr);
+}
+
 .section-projects .document {
   max-width: 920px;
   gap: 18px;
@@ -379,7 +420,7 @@ button {
 
 .section-projects .project-detail-row {
   display: grid;
-  grid-template-columns: 82px minmax(0, 1fr);
+  grid-template-columns: 96px minmax(0, 1fr);
   column-gap: 16px;
   padding: 10px 0;
   border-top: 1px solid #eeeeee;
@@ -604,7 +645,19 @@ button {
     padding: 8px 0;
   }
 
+  .info-row,
+  .section-resume .info-row,
+  .section-cv .info-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding: 8px 0;
+  }
+
   .section-projects .project-detail-row dt {
+    line-height: 1.35;
+  }
+
+  .info-row dt {
     line-height: 1.35;
   }
 

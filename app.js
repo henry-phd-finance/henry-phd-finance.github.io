@@ -361,6 +361,59 @@ function renderMarkdown(markdown, sectionSlug = "") {
     }
 
     if (trimmed.startsWith("- ")) {
+      if (sectionSlug === "projects" && currentProjectCard) {
+        const details = document.createElement("dl");
+        details.className = "project-details";
+
+        while (index < lines.length && lines[index].trim().startsWith("- ")) {
+          const detailText = lines[index].trim().replace(/^- /, "");
+          const labelMatch = detailText.match(/^\*\*([^*]+)\*\*\s*(.*)$/);
+          const row = document.createElement("div");
+          row.className = "project-detail-row";
+
+          if (labelMatch) {
+            const term = document.createElement("dt");
+            const label = labelMatch[1].replace(/:$/, "");
+            term.textContent = label;
+
+            const description = document.createElement("dd");
+            if (label === "메타") {
+              row.classList.add("project-detail-meta");
+              description.className = "project-meta-tags";
+              labelMatch[2].split("·").forEach((tagText) => {
+                const trimmedTag = tagText.trim();
+                if (!trimmedTag) {
+                  return;
+                }
+                const tag = document.createElement("span");
+                tag.className = "project-meta-tag";
+                tag.textContent = trimmedTag;
+                description.appendChild(tag);
+              });
+            } else {
+              if (label === "결과") {
+                row.classList.add("project-detail-impact");
+              }
+              appendInlineMarkdown(description, labelMatch[2]);
+            }
+
+            row.appendChild(term);
+            row.appendChild(description);
+          } else {
+            const description = document.createElement("dd");
+            description.className = "project-detail-unlabeled";
+            appendInlineMarkdown(description, detailText);
+            row.appendChild(description);
+          }
+
+          details.appendChild(row);
+          index += 1;
+        }
+
+        appendNode(details);
+        continue;
+      }
+
       const list = document.createElement("ul");
       while (index < lines.length && lines[index].trim().startsWith("- ")) {
         const item = document.createElement("li");
